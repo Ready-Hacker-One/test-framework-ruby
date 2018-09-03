@@ -1,0 +1,75 @@
+global:
+  graylog_url: "https://newlog.internal.sumup.com"
+  graylog_username: "automation.test"
+  graylog_password: {{ with secret "secret/test/credentials_graylog_testauto_secret" }}{{ .Data.value }}{{ end }}
+  graylog_number_of_polls: 5
+  db_port: 5432
+  db_user: triangle
+  db_password: {{ with secret "secret/triangle/database/sumup/password" }}{{ .Data.value }}{{ end }}
+  acquirer_simulator_url: "http://pay1-c7-beta.internal.sumup.com:8090"
+  card_simulator_url: "http://pay1-c7-beta.internal.sumup.com:8095"
+  browser: firefox
+  pretty_print:
+    card_simulator_responses: true
+
+theta:
+  api_payments_url: "https://txg-theta.sam-app.ro"
+  api_risk_url: "https://risk-management-theta.sam-app.ro"
+  api_transactions_url: "https://transactions-theta.sam-app.ro"
+  api_triangle_url: "https://triangle-theta.sam-app.ro"
+  api_users_url: "https://users-theta.sam-app.ro"
+  db_host: sql-theta.sam-app.ro
+  db_name: sumup_theta
+  graylog_stream: "59f0af481846f557b881acf1"
+  preset_merchants:
+    DE: ""
+    UK: ""
+
+beta:
+  api_payments_url: "https://txg-beta.sam-app.ro"
+  api_risk_url: "https://risk-management-beta.sam-app.ro"
+  api_transactions_url: "https://transactions-beta.sam-app.ro"
+  api_triangle_url: "https://triangle-beta.sam-app.ro"
+  api_users_url: "https://users-beta.sam-app.ro"
+  db_host: sql-beta.sam-app.ro
+  db_name: sumup_beta
+  graylog_stream: "59f0af081846f557b881acae"
+  preset_merchants:
+    DE: ""
+    UK: ""
+
+staging:
+  api_payments_url: "https://txg.sam-app.ro"
+  api_risk_url: "https://risk-management.sam-app.ro"
+  api_transactions_url: "https://transactions.sam-app.ro"
+  api_triangle_url: "https://triangle.sam-app.ro"
+  api_users_url: "https://users.sam-app.ro"
+  soap_url: http://admin.sam-app.ro
+  soap_admin_user: soap.autoqa@sam-app.ro
+  soap_admin_password:
+  db_host: sql-stage.internal.sumup.com
+  db_name: sumup_staging
+  mwi_url: https://secure.sam-app.ro
+  encryption:
+    keys:
+      elv_card_accounts_account_number: development_encryption.key
+      merchants_iban: development_encryption.key
+      merchants_national_account_number: development_encryption.key
+  services:
+    iban_generation:
+      url: https://ssl.ibanrechner.de/http.html
+      user: "sumup"
+      password:
+      ssl_verify: true
+  triangle_url: "triangle.sam-app.ro"
+  triangle_port: 443
+  triangle_service: https
+  txg_url: "txg.sam-app.ro"
+  txg_port: 443
+  txg_service: https
+  slow: false
+  pay_sumup_url: 'https://pay.sam-app.ro'
+  graylog_stream: "5ac7612f7de5500e431c52b5"
+  preset_merchants:
+    DE: ""
+    UK: ""

@@ -1,0 +1,2 @@
+default: --profile html_report
+html_report: -f progress -f json --out=test-output/features_report.json
